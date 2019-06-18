@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>changestyle</title>
+    <link id="linkstyle" rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <input type="button" value="skin1" onclick="skin1()">
+    <input type="button" value="skin2" onclick="skin2()">
+    <script>
+        let linkstyle = document.getElementById('linkstyle')
+        function skin1(){
+            linkstyle.href = 'style1.css'//also can write linkstyle.setAttribute('href','style1.css')
+        }
+        function skin2(){
+            linkstyle.href = 'style2.css'//also can write linkstyle.setAttribute('href','style2.css')
+        }
+    </script>
+</body>
+</html>

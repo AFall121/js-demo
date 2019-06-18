@@ -1,0 +1,10 @@
+body{
+    padding: 20px;
+    margin: 0;
+    background-color: grey;
+}
+div{
+    background-color: rebeccapurple;
+    width: 90px;
+    height: 90px;
+}

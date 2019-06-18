@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #boxes div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            float: left;
+            margin-left: 20px;
+        }
+    </style>
+    <script>
+
+            function hello(){
+        let boxes = document.getElementById('boxes')
+        let divs = boxes.getElementsByTagName('div')
+        for(let i=0;i<divs.length;i++){
+            divs[i].style.background = 'red'
+        }
+        // divs.style.background-color = 'red'
+        console.log(divs.length)
+    }
+        window.onload=function(){
+            let btn1 = document.getElementById('btn1')
+        btn1.onclick=hello
+        }
+    </script>
+</head>
+<body>
+    <div id="boxes">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <input id="btn1" type="button" value="clickme">
+    <div></div>
+</body>
+</html>

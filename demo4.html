@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #options input[type="checkbox"]{
+            display: block
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            let selectAll = document.getElementById('selectAll')
+            let noOne = document.getElementById('noOne')
+            let opsition = document.getElementById('opsition')
+            let all = document.getElementById('options').getElementsByTagName('input')
+            
+            selectAll.onclick = function (){
+                noOne.checked=false
+                for(let i=0;i<all.length;i++){
+                    all[i].checked = true
+                }
+            }
+            
+            noOne.onclick = function(){
+                selectAll.checked=false
+                for(let i=0;i<all.length;i++){
+                    all[i].checked = false
+                }
+            }
+
+            opsition.onclick = function(){
+                for(let i=0;i<all.length;i++){
+                    if(all[i].checked ==true)
+                    all[i].checked = false
+                    else
+                    all[i].checked = true
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="checkbox" name="all" id="selectAll">
+<label for="selectAll">selectAll</label>
+<input type="checkbox" name="noone" id="noOne">
+<label for="noone">noone</label>
+<input type="checkbox" name="opsition" id="opsition">
+<label for="opsition">opsition</label>
+<div id="options">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #showvar{
+            display: none;
+            width: 200px;
+            height: 200px;
+            background-color:cyan;
+        }
+    </style>
+</head>
+<body>
+    <input id="txt1" type="text">
+    <button onclick="setText()">changeword</button>
+    <input id="show" type="button" onclick="show()" value="showhide">
+    <div id="showvar"></div>
+    <script>
+        function setText(){
+            var oTxt1 = document.getElementById('txt1')
+            oTxt1.value = "nizaishuonimane"
+            oTxt1.title = "please input words"
+        }
+        let btn = document.getElementById("show")
+        let div = document.getElementById('showvar')
+        function show(){
+            div.style.display = "block"
+            btn.value = "hiddenthat"
+            // btn.onclick = hide
+            btn.setAttribute('onclick','hide()')
+            /*
+             经过本人亲自测试发现：在javascript中只有采用setAttribute()方法才能改变
+             onclick的行间属性值！本例中btn.value="hiddenthat"成功将showthat改成了hiddenthat！
+             但btn.onclick=hide 时，虽然成功运行代码，但在行间属性中onclick的值依然是show()!!!!!
+             并没有变成hide！！！！！！！
+             conclusion：javascript中改变元素（Dom）的属性值，最好用setAttribute（）方法！而不要直接赋值！
+             改变元素的样式要么只改style！！！（行间样式）要么只改className！！！！（本例中我没有采用className的方式）
+             要不然容易出问题（样式的优先级问题！！！混用就容易搞不清）
+            */
+        }
+        function hide(){
+            div.style.display = "none"
+            btn.value = "showthat"
+            // btn.onclick = show//在关于dom的属性操作时，
+            //最好用setAttribute()，因为这里的btn.onclick="show()"根本没用
+            //但btn.value = "showthat" 却能成功！show()方法里同理
+            //因为onclick接受的值是函数值！应该写成btn.onclick = show
+            btn.setAttribute('onclick','show()')
+        }
+        // function showhide(){
+        //     if(div.style.display=='none'){
+        //         div.style.display='block'
+        //     }else{
+        //         div.style.display='none'
+        //     }
+        // }
+    </script>
+</body>
+</html>
